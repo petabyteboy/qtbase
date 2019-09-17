@@ -213,7 +213,7 @@ private:
 
 // --------------------------------------------------------------------------
 
-#if !defined(QT_BOOTSTRAPPED)
+#if 0
 
 QT_END_NAMESPACE
 #include <os/activity.h>
@@ -291,7 +291,19 @@ QT_MAC_WEAK_IMPORT(_os_activity_current);
 
 #define QT_APPLE_SCOPED_LOG_ACTIVITY(...) QAppleLogActivity scopedLogActivity = QT_APPLE_LOG_ACTIVITY(__VA_ARGS__).enter();
 
-#endif // !defined(QT_BOOTSTRAPPED)
+#else // !defined(QT_BOOTSTRAPPED)
+
+#define QT_APPLE_LOG_ACTIVITY_WITH_PARENT3(...)
+#define QT_APPLE_LOG_ACTIVITY_WITH_PARENT2(...)
+#define QT_APPLE_LOG_ACTIVITY_WITH_PARENT(...)
+
+#define QT_APPLE_LOG_ACTIVITY2(...)
+#define QT_APPLE_LOG_ACTIVITY1(...)
+#define QT_APPLE_LOG_ACTIVITY(...)
+
+#define QT_APPLE_SCOPED_LOG_ACTIVITY(...)
+
+#endif
 
 // -------------------------------------------------------------------------
 

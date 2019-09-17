@@ -57,7 +57,7 @@
 
 QT_BEGIN_NAMESPACE
 
-#if defined(QT_USE_APPLE_UNIFIED_LOGGING)
+#if defined(QT_USE_APPLE_UNIFIED_LOGGING) && 0
 class QAppleTestLogger : public QAbstractTestLogger
 {
 public:
