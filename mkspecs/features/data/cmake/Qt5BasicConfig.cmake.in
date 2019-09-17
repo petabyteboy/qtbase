@@ -513,7 +513,7 @@ if (NOT TARGET Qt5::$${CMAKE_MODULE_NAME})
           IsDebugAndRelease)
         set_property(TARGET Qt5::${Plugin} APPEND PROPERTY IMPORTED_CONFIGURATIONS ${Configuration})
 
-        set(imported_location \"$${CMAKE_PLUGIN_DIR}${PLUGIN_LOCATION}\")
+        set(imported_location \"${PLUGIN_LOCATION}\")
         _qt5_$${CMAKE_MODULE_NAME}_check_file_exists(${imported_location})
         set_target_properties(Qt5::${Plugin} PROPERTIES
             \"IMPORTED_LOCATION_${Configuration}\" ${imported_location}
