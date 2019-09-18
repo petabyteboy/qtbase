@@ -51,7 +51,7 @@ builtin_resources {
 # Install rules
 qmldir.base = $$qmldir_path
 qmldir.files = $$qmldir_file
-qmldir.path = $$[QT_INSTALL_QML]/$$TARGETPATH
+qmldir.path = $$NIX_OUTPUT_QML/$$TARGETPATH
 INSTALLS += qmldir
 
 qmlfiles.base = $$_PRO_FILE_PWD_

@@ -88,7 +88,7 @@ sourcefiles += \
     $$SOURCES $$HEADERS $$FORMS $$RESOURCES $$TRANSLATIONS \
     $$DBUS_ADAPTORS $$DBUS_INTERFACES
 addInstallFiles(sources.files, $$sourcefiles)
-sources.path = $$[QT_INSTALL_EXAMPLES]/$$probase
+sources.path = $$NIX_OUTPUT_DEV/share/examples/$$probase
 INSTALLS += sources
 
 check_examples {
