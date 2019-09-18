@@ -30,32 +30,16 @@ contains(TEMPLATE, .*lib) {
         rplbase = $$dirname(_QMAKE_SUPER_CACHE_)/[^/][^/]*
     else: \
         rplbase = $$MODULE_BASE_OUTDIR
-    host_build {
-        qqt_libdir = \$\$\$\$[QT_HOST_LIBS]
-        qt_libdir = $$[QT_HOST_LIBS]
-    } else {
-        qqt_libdir = \$\$\$\$[QT_INSTALL_LIBS]
-        qt_libdir = $$[QT_INSTALL_LIBS]
-    }
+    qt_libdir = $$NIX_OUTPUT_OUT/lib
     contains(QMAKE_DEFAULT_LIBDIRS, $$qt_libdir) {
-        lib_replace0.match = $$rplbase/lib/
-        lib_replace0.replace = $$qqt_libdir/
-        lib_replace0.CONFIG = path
-        QMAKE_PRL_INSTALL_REPLACE += lib_replace0
         lib_replace.match = "[^ ']*$$rplbase/lib"
         lib_replace.replace =
     } else {
         lib_replace.match = $$rplbase/lib
-        lib_replace.replace = $$qqt_libdir
+        lib_replace.replace = $$qt_libdir
     }
     lib_replace.CONFIG = path
     QMAKE_PRL_INSTALL_REPLACE += lib_replace
-    !equals(qt_libdir, $$rplbase/lib) {
-        qtlibdir_replace.match = $$qt_libdir
-        qtlibdir_replace.replace = $$qqt_libdir
-        qtlibdir_replace.CONFIG = path
-        QMAKE_PRL_INSTALL_REPLACE += qtlibdir_replace
-    }
 }
 
 # The remainder of this file must not apply to host tools/libraries,
