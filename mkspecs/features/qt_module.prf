@@ -84,7 +84,7 @@ header_module {
         CONFIG  += qt_no_install_library
 
     # Allow creation of .prl, .la and .pc files.
-    target.path = $$[QT_INSTALL_LIBS]
+    target.path = $$NIX_OUTPUT_OUT/lib
     target.CONFIG += dummy_install
     INSTALLS    += target
 } else {
