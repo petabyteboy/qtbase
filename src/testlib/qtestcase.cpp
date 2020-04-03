@@ -849,7 +849,7 @@ Q_TESTLIB_EXPORT void qtest_qParseArgs(int argc, const char *const argv[], bool 
 
     bool addFallbackLogger = !explicitLoggerRequested;
 
-#if defined(QT_USE_APPLE_UNIFIED_LOGGING)
+#if defined(QT_USE_APPLE_UNIFIED_LOGGING) && 0
     // Any explicitly requested loggers will be added by now, so we can check if they use stdout
     const bool safeToAddAppleLogger = !AppleUnifiedLogger::willMirrorToStderr() || !QTestLog::loggerUsingStdout();
     if (safeToAddAppleLogger && QAppleTestLogger::debugLoggingEnabled()) {

@@ -465,7 +465,7 @@ void QTestLog::addLogger(LogMode mode, const char *filename)
     case QTestLog::TAP:
         logger = new QTapTestLogger(filename);
         break;
-#if defined(QT_USE_APPLE_UNIFIED_LOGGING)
+#if defined(QT_USE_APPLE_UNIFIED_LOGGING) && 0
     case QTestLog::Apple:
         logger = new QAppleTestLogger;
         break;
