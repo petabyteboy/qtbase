@@ -50,7 +50,7 @@ load(qt_build_paths)
 
 DESTDIR = $$MODULE_BASE_OUTDIR/qml/$$TARGETPATH
 
-target.path = $$[QT_INSTALL_QML]/$$TARGETPATH
+target.path = $$NIX_OUTPUT_QML/$$TARGETPATH
 INSTALLS += target
 
 # Some final setup
