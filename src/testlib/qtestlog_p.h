@@ -72,7 +72,7 @@ public:
 
     enum LogMode {
         Plain = 0, XML, LightXML, XunitXML, CSV, TeamCity, TAP
-#if defined(QT_USE_APPLE_UNIFIED_LOGGING)
+#if defined(QT_USE_APPLE_UNIFIED_LOGGING) && 0
         , Apple
 #endif
 #if defined(HAVE_XCTEST)
