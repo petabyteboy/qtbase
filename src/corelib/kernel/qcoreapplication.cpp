@@ -2691,6 +2691,16 @@ QStringList QCoreApplication::libraryPathsLocked()
         QStringList *app_libpaths = new QStringList;
         coreappdata()->app_libpaths.reset(app_libpaths);
 
+        // Add library paths derived from PATH
+        const QStringList paths = QFile::decodeName(qgetenv("PATH")).split(':');
+        const QString plugindir = QStringLiteral("../" NIXPKGS_QT_PLUGIN_PREFIX);
+        for (const QString &path: paths) {
+            if (!path.isEmpty()) {
+                app_libpaths->append(QDir::cleanPath(path + QDir::separator() + plugindir));
+            }
+        }
+
+
         auto setPathsFromEnv = [&](QString libPathEnv) {
             if (!libPathEnv.isEmpty()) {
                 QStringList paths = libPathEnv.split(QDir::listSeparator(), Qt::SkipEmptyParts);
